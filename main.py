@@ -30,17 +30,17 @@ libros = [
     }
 ]
 
-# Ruta principal
+
 @app.get("/")
 def inicio():
-    return {"mensaje": "Bienvenido a la API de Libros"}
+    return {"mensaje": "API de Libros actualizada correctamente"}
 
-# GET: Mostrar todos los libros
+
 @app.get("/libros")
 def obtener_libros():
     return libros
 
-# GET: Buscar un libro por ID
+
 @app.get("/libros/{libro_id}")
 def buscar_libro(libro_id: int):
     for libro in libros:
@@ -52,7 +52,7 @@ def buscar_libro(libro_id: int):
         detail="Libro no encontrado"
     )
 
-# POST: Agregar un libro
+
 @app.post("/libros", status_code=201)
 def agregar_libro(libro: Libro):
     nuevo_id = max(
